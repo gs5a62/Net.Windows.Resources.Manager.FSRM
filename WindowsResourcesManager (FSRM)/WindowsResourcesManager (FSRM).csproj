@@ -1,5 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<RootNamespace>WindowsResourcesManager_FSRM</RootNamespace>
@@ -25,6 +24,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Include="docs\README.md" Pack="true" PackagePath="\" />
+		<None Include="README.md" Pack="true" PackagePath="\" />
 	</ItemGroup>
 </Project>
