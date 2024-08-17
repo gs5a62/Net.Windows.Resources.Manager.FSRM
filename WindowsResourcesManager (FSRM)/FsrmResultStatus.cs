@@ -11,6 +11,7 @@ namespace WindowsResourcesManager
         PathQuotaNotFound,
         PathQuotaAlreadyExists,
         PathTooLong,
-        NullParameter
+        NullParameter,
+        InUse
     }
 }

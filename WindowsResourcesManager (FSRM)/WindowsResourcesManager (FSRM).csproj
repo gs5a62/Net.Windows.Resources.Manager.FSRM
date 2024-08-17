@@ -8,9 +8,9 @@
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<PackageTags>.net,c#,resourceManager,fsrm</PackageTags>
 		<PackageId>net.windows.resources.manager.FSRM</PackageId>
-		<Version>1.0.0.28</Version>
-		<AssemblyVersion>1.0.0.28</AssemblyVersion>
-		<FileVersion>1.0.0.28</FileVersion>
+		<Version>1.0.0.30</Version>
+		<AssemblyVersion>1.0.0.30</AssemblyVersion>
+		<FileVersion>1.0.0.30</FileVersion>
 		<Authors>Ahmed Abdulrahman</Authors>
 		<Product>.Net Windows File Server Resource Manager (FSRM)</Product>
 		<Description>A .net wrapper for the windows api of Resource Manager which can be used to limit folders quota</Description>
@@ -23,14 +23,14 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<None Include="README.md" Pack="true" PackagePath="\" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <Reference Include="FsrmLib">
 	    <HintPath>FsrmLib.dll</HintPath>
 		  <EmbedInteropTypes>True</EmbedInteropTypes>
 	  </Reference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="docs\README.md" Pack="true" PackagePath="\"/>
 	</ItemGroup>
 
 </Project>

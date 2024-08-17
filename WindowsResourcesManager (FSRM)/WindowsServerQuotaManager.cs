@@ -56,6 +56,50 @@ namespace WindowsResourcesManager
             }
         }
 
+        public FsrmResult RemoveQuotaIfExists(string path)
+        {
+            try
+            {
+                var quotaResult = GetQuotaIfExists(path);
+
+                if (quotaResult.ErrorStatus is FsrmResultStatus.QuotaNotFound || quotaResult.ErrorStatus is FsrmResultStatus.PathQuotaNotFound)
+                    return FsrmResult.Failure("Quota is not found for this path", FsrmResultStatus.QuotaNotFound);
+
+                var quota = quotaResult.FsrmQuota;
+                quota.Delete();
+                quota.Commit();
+
+                return FsrmResult.Success();
+            }
+            catch (Exception e)
+            {
+                FsrmResultStatus status = FsrmResultStatus.UnknownError;
+
+                if (e.GetType() != typeof(COMException))
+                    return FsrmResult.Failure(e.Message, status);
+
+                string errorMessage;
+                switch (e.HResult)
+                {
+                    case unchecked((int)0x80045301):
+                        status = FsrmResultStatus.QuotaNotFound;
+                        errorMessage = "The specified quota could not be found";
+                        break;
+
+                    case unchecked((int)0x80045303):
+                        status = FsrmResultStatus.InUse;
+                        errorMessage = "The quota is in use right now";
+                        break;
+                    default:
+                        status = FsrmResultStatus.UnknownError;
+                        errorMessage = "Unknown error, check if path exists";
+                        break;
+                }
+
+                return FsrmResult.Failure(errorMessage, status);
+            }
+        }
+
 
         public FsrmResult CreateOrUpdateQuota(string path, long limitInBytes, string description = null)
         {
