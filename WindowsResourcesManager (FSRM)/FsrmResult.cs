@@ -1,6 +1,6 @@
 ﻿using FsrmLib;
 
-namespace WindowsResourcesManager_FSRM
+namespace WindowsResourcesManager
 {
     public class FsrmResult
     {

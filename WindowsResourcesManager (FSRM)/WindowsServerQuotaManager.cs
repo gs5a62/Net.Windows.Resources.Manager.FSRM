@@ -2,7 +2,7 @@ using System;
 using System.Runtime.InteropServices;
 using FsrmLib;
 
-namespace WindowsResourcesManager_FSRM
+namespace WindowsResourcesManager
 {
     /// <summary>
     /// for more info visit
@@ -48,7 +48,7 @@ namespace WindowsResourcesManager_FSRM
 
                     default:
                         status = FsrmResultStatus.UnknownError;
-                        errorMessage = "Unknown error";
+                        errorMessage = "Unknown error, check if path exists";
                         break;
                 }
 
@@ -102,7 +102,7 @@ namespace WindowsResourcesManager_FSRM
 
                     default:
                         status = FsrmResultStatus.UnknownError;
-                        errorMessage = "Unknown error";
+                        errorMessage = "Unknown error, check if path exists";
                         break;
                 }
 
