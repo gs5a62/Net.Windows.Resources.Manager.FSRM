@@ -25,7 +25,7 @@ configure folder quotas programmatically.
 You can install the package via NuGet Package Manager:
 
 ```bash
-Install-Package WindowsResourcesManager.FSRM
+Install-Package net.windows.resources.manager.FSRM
 ```
 
 Install the windows feature if it's not already installed
@@ -36,7 +36,7 @@ Install-WindowsFeature -Name FS-Resource-Manager -IncludeManagementTools
 
 ### How to Use
 
-Example setting a 20 GB hard limit on folder `d:\\targetPath`
+Example setting a 20 GB hard limit on folder `d:\targetPath`
 
 ```bash
 using var service = new WindowsServerQuotaManager();
